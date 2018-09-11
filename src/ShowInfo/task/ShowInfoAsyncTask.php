@@ -19,7 +19,7 @@ class ShowInfoAsyncTask extends AsyncTask{
 	 	}
 	}
 
-	public function onCompletion(Server $server){
+	public function onCompletion() : void{
 		$this->info = str_ireplace([
 			"{PLAYERS}", "{MAXPLAYERS}"
 		], [
@@ -54,7 +54,7 @@ class ShowInfoAsyncTask extends AsyncTask{
 		}
  	}
 
-	public function onRun(){
+	public function onRun() : void{
 		$push = str_repeat(" ", abs($this->data["PushVolume"]));
 		if($this->data["PushVolume"] < 0){
 			$this->info =	$push . str_replace("\n", "$push\n", $this->info);
